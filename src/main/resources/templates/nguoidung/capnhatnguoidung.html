@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout/layoutAdmin.html}">
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<div class="wrapper wrapper__custom-height wrapper-block" layout:fragment="content">
+	    <div class="container__page-fullWidth">
+	        <div class="name__page">
+	            <h4 class="name__page-tilte">
+	                Thêm bệnh nhân
+	            </h4>
+	        </div>
+	        <div class="container__page-content">
+	            
+	               <form class="form" method="post" action="/nguoi-dung/them-nguoi-dung">
+	                   <div class="row">
+	                       <div class="col l-4 m-6 c-12">
+	                           <div class="form__import-item">
+	                               <label class="form__import-label"> Tên người dùng </label>
+	                               <input class="form__import-select" name="name"/>
+	                           </div>
+	                       </div>
+	                       <div class="col l-4 m-6 c-12">
+	                           <div class="form__import-item">
+	                               <label class="form__import-label"> Tuổi </label>
+	                               <input class="form__import-select" name="age"/>
+	                           </div>
+	                       </div>
+	                       
+	                       
+	                   </div>
+	                   <div class="btn-container">
+	                       <button class="btn btn-primary btn__save btn-submit" type="submit">
+	                           Lưu thông tin
+	                       </button>
+	                       <button class="btn btn__reset btn-submit btn-default">
+	                           Đặt lại
+	                       </button>
+	                       <button class="btn btn__cancel btn-submit btn-default">
+	                           Hủy
+	                       </button>
+	                   </div>
+	               </form>
+	            
+	        </div>
+	    </div>
+	
+	
+	</div>
+</body>
+</html>
