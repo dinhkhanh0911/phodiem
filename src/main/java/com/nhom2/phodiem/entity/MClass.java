@@ -1,86 +1,79 @@
 package com.nhom2.phodiem.entity;
 
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "classes")
+@Data
 public class MClass {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long classId;
 	private String classNameString;
 	private String classCode;
 	private int studentNumber;
-	private long studentId;
 	private String createBy;
 	private Date createDate;
 	private String modifiedByString;
 	private Date modifiedDate;
-	public MClass() {
-		// TODO Auto-generated constructor stub
-	}
-	public MClass(long classId, String classNameString, String classCode, int studentNumber, long studentId,
-			String createBy, Date createDate, String modifiedByString, Date modifiedDate) {
-		super();
-		this.classId = classId;
-		this.classNameString = classNameString;
-		this.classCode = classCode;
-		this.studentNumber = studentNumber;
-		this.studentId = studentId;
-		this.createBy = createBy;
-		this.createDate = createDate;
-		this.modifiedByString = modifiedByString;
-		this.modifiedDate = modifiedDate;
-	}
-	public long getClassId() {
-		return classId;
-	}
-	public void setClassId(long classId) {
-		this.classId = classId;
-	}
-	public String getClassNameString() {
-		return classNameString;
-	}
-	public void setClassNameString(String classNameString) {
-		this.classNameString = classNameString;
-	}
-	public String getClassCode() {
-		return classCode;
-	}
-	public void setClassCode(String classCode) {
-		this.classCode = classCode;
-	}
-	public int getStudentNumber() {
-		return studentNumber;
-	}
-	public void setStudentNumber(int studentNumber) {
-		this.studentNumber = studentNumber;
-	}
-	public long getStudentId() {
-		return studentId;
-	}
-	public void setStudentId(long studentId) {
-		this.studentId = studentId;
-	}
-	public String getCreateBy() {
-		return createBy;
-	}
-	public void setCreateBy(String createBy) {
-		this.createBy = createBy;
-	}
-	public Date getCreateDate() {
-		return createDate;
-	}
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-	public String getModifiedByString() {
-		return modifiedByString;
-	}
-	public void setModifiedByString(String modifiedByString) {
-		this.modifiedByString = modifiedByString;
-	}
-	public Date getModifiedDate() {
-		return modifiedDate;
-	}
-	public void setModifiedDate(Date modifiedDate) {
-		this.modifiedDate = modifiedDate;
-	}
+	
+	@ManyToOne
+	@JoinColumn(name = "teacherId")
+	private Teacher teacher;
+	
+	@ManyToOne
+	@JoinColumn(name = "semesterId")
+	private Semester semester;
+	
+	@ManyToOne
+	@JoinColumn(name = "subjectId")
+	private Subject subject;
+	
+	@OneToMany(mappedBy = "mClass")
+	private Set<StudentClass> studentClasses;
+	
+	/*
+	 * public MClass() { } public MClass(long classId, String classNameString,
+	 * String classCode, int studentNumber, long teacherId, String createBy, Date
+	 * createDate, String modifiedByString, Date modifiedDate) { super();
+	 * this.classId = classId; this.classNameString = classNameString;
+	 * this.classCode = classCode; this.studentNumber = studentNumber;
+	 * this.teacherId = teacherId; this.createBy = createBy; this.createDate =
+	 * createDate; this.modifiedByString = modifiedByString; this.modifiedDate =
+	 * modifiedDate; } public long getClassId() { return classId; } public void
+	 * setClassId(long classId) { this.classId = classId; } public String
+	 * getClassNameString() { return classNameString; } public void
+	 * setClassNameString(String classNameString) { this.classNameString =
+	 * classNameString; } public String getClassCode() { return classCode; } public
+	 * void setClassCode(String classCode) { this.classCode = classCode; } public
+	 * int getStudentNumber() { return studentNumber; } public void
+	 * setStudentNumber(int studentNumber) { this.studentNumber = studentNumber; }
+	 * public long getTeacherId() { return teacherId; } public void
+	 * setTeacherId(long teacherId) { this.teacherId = teacherId; } public String
+	 * getCreateBy() { return createBy; } public void setCreateBy(String createBy) {
+	 * this.createBy = createBy; } public Date getCreateDate() { return createDate;
+	 * } public void setCreateDate(Date createDate) { this.createDate = createDate;
+	 * } public String getModifiedByString() { return modifiedByString; } public
+	 * void setModifiedByString(String modifiedByString) { this.modifiedByString =
+	 * modifiedByString; } public Date getModifiedDate() { return modifiedDate; }
+	 * public void setModifiedDate(Date modifiedDate) { this.modifiedDate =
+	 * modifiedDate; }
+	 */
 
 }
