@@ -93,21 +93,21 @@ public class Subject {
 		this.modifiedDate = modifiedDate;
 	}
 
-	public Set<MarkConfig> getMarkConfigs() {
-		return markConfigs;
-	}
-
-	public void setMarkConfigs(Set<MarkConfig> markConfigs) {
-		this.markConfigs = markConfigs;
-	}
-
-	public Set<MClass> getmClasses() {
-		return mClasses;
-	}
-
-	public void setmClasses(Set<MClass> mClasses) {
-		this.mClasses = mClasses;
-	}
+//	public Set<MarkConfig> getMarkConfigs() {
+//		return markConfigs;
+//	}
+//
+//	public void setMarkConfigs(Set<MarkConfig> markConfigs) {
+//		this.markConfigs = markConfigs;
+//	}
+//
+//	public Set<MClass> getmClasses() {
+//		return mClasses;
+//	}
+//
+//	public void setmClasses(Set<MClass> mClasses) {
+//		this.mClasses = mClasses;
+//	}
 	
 	
 

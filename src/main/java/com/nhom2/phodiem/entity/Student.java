@@ -88,21 +88,21 @@ public class Student {
 		this.modifiedDate = modifiedDate;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public Set<StudentClass> getStudentClasses() {
-		return studentClasses;
-	}
-
-	public void setStudentClasses(Set<StudentClass> studentClasses) {
-		this.studentClasses = studentClasses;
-	}
+//	public User getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
+//
+//	public Set<StudentClass> getStudentClasses() {
+//		return studentClasses;
+//	}
+//
+//	public void setStudentClasses(Set<StudentClass> studentClasses) {
+//		this.studentClasses = studentClasses;
+//	}
 	
 	
 	

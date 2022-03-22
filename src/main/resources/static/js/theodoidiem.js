@@ -3,13 +3,12 @@
  */
 
 
-$(document).ready( function () {
+$(document).ready(function () {
     $('#table_id').DataTable();
 	loadSemester();
 	loadKhoa();
 	loadClass();
-	loadTeacher();
-
+	loadGv();
 
 	$('#report').submit(function(even) {
 		even.preventDefault();
@@ -132,11 +131,11 @@ function loadGv(){
 		}
 	}).done(function(response) {
 		console.log(response);
-		$('#giaoVien').empty();
+		$('#giaovien').empty();
 		
 		[...response["data"]].forEach(val => {
-			$('#giaoVIen').append(`
-			<option value="${val['teacherId']}">${val['teacherName']}</option>
+			$('#giaovien').append(`
+			<option value="${val['teacherId']}">${val['teachername']}</option>
 			`);
 		})
 

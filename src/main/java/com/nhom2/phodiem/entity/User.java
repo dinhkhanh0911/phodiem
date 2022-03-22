@@ -157,13 +157,13 @@ public class User {
 		this.positionName = positionName;
 	}
 
-	public Position getPosition() {
-		return position;
-	}
-
-	public void setPosition(Position position) {
-		this.position = position;
-	}
+//	public Position getPosition() {
+//		return position;
+//	}
+//
+//	public void setPosition(Position position) {
+//		this.position = position;
+//	}
 
 	public String getCreateBy() {
 		return createBy;
@@ -197,21 +197,21 @@ public class User {
 		this.modifiedDate = modifiedDate;
 	}
 
-	public Student getStudent() {
-		return student;
-	}
-
-	public void setStudent(Student student) {
-		this.student = student;
-	}
-
-	public Teacher getTeacher() {
-		return teacher;
-	}
-
-	public void setTeacher(Teacher teacher) {
-		this.teacher = teacher;
-	}
+//	public Student getStudent() {
+//		return student;
+//	}
+//
+//	public void setStudent(Student student) {
+//		this.student = student;
+//	}
+//
+//	public Teacher getTeacher() {
+//		return teacher;
+//	}
+//
+//	public void setTeacher(Teacher teacher) {
+//		this.teacher = teacher;
+//	}
 	
 	
 	

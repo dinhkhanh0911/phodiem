@@ -94,13 +94,13 @@ public class MarkConfig {
 		this.modifiedDate = modifiedDate;
 	}
 
-	public Subject getSubject() {
-		return subject;
-	}
-
-	public void setSubject(Subject subject) {
-		this.subject = subject;
-	}
+//	public Subject getSubject() {
+//		return subject;
+//	}
+//
+//	public void setSubject(Subject subject) {
+//		this.subject = subject;
+//	}
 	
 	
 	

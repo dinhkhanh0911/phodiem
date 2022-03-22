@@ -46,30 +46,30 @@ public class StudentClass {
 		this.studentClassId = studentClassId;
 	}
 
-	public MClass getmClass() {
-		return mClass;
-	}
-
-	public void setmClass(MClass mClass) {
-		this.mClass = mClass;
-	}
-
-	public Student getStudent() {
-		return student;
-	}
-
-	public void setStudent(Student student) {
-		this.student = student;
-	}
-
-	public Set<Mark> getMarks() {
-		return marks;
-	}
-
-	public void setMarks(Set<Mark> marks) {
-		this.marks = marks;
-	}
-	
+//	public MClass getmClass() {
+//		return mClass;
+//	}
+//
+//	public void setmClass(MClass mClass) {
+//		this.mClass = mClass;
+//	}
+//
+//	public Student getStudent() {
+//		return student;
+//	}
+//
+//	public void setStudent(Student student) {
+//		this.student = student;
+//	}
+//
+//	public Set<Mark> getMarks() {
+//		return marks;
+//	}
+//
+//	public void setMarks(Set<Mark> marks) {
+//		this.marks = marks;
+//	}
+//	
 	
 	
 }

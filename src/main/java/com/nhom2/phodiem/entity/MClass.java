@@ -112,37 +112,37 @@ public class MClass {
 		this.modifiedDate = modifiedDate;
 	}
 
-	public Teacher getTeacher() {
-		return teacher;
-	}
-
-	public void setTeacher(Teacher teacher) {
-		this.teacher = teacher;
-	}
-
-	public Semester getSemester() {
-		return semester;
-	}
-
-	public void setSemester(Semester semester) {
-		this.semester = semester;
-	}
-
-	public Subject getSubject() {
-		return subject;
-	}
-
-	public void setSubject(Subject subject) {
-		this.subject = subject;
-	}
-
-	public Set<StudentClass> getStudentClasses() {
-		return studentClasses;
-	}
-
-	public void setStudentClasses(Set<StudentClass> studentClasses) {
-		this.studentClasses = studentClasses;
-	}
+//	public Teacher getTeacher() {
+//		return teacher;
+//	}
+//
+//	public void setTeacher(Teacher teacher) {
+//		this.teacher = teacher;
+//	}
+//
+//	public Semester getSemester() {
+//		return semester;
+//	}
+//
+//	public void setSemester(Semester semester) {
+//		this.semester = semester;
+//	}
+//
+//	public Subject getSubject() {
+//		return subject;
+//	}
+//
+//	public void setSubject(Subject subject) {
+//		this.subject = subject;
+//	}
+//
+//	public Set<StudentClass> getStudentClasses() {
+//		return studentClasses;
+//	}
+//
+//	public void setStudentClasses(Set<StudentClass> studentClasses) {
+//		this.studentClasses = studentClasses;
+//	}
 	
 	
 

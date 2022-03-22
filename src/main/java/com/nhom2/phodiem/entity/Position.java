@@ -89,13 +89,6 @@ public class Position {
 		this.modifiedDate = modifiedDate;
 	}
 
-	public Set<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(Set<User> users) {
-		this.users = users;
-	}
 
 	
 

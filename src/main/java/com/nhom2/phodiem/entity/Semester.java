@@ -89,13 +89,13 @@ public class Semester {
 		this.modifiedDate = modifiedDate;
 	}
 
-	public Set<MClass> getmClasses() {
-		return mClasses;
-	}
-
-	public void setmClasses(Set<MClass> mClasses) {
-		this.mClasses = mClasses;
-	}
+//	public Set<MClass> getmClasses() {
+//		return mClasses;
+//	}
+//
+//	public void setmClasses(Set<MClass> mClasses) {
+//		this.mClasses = mClasses;
+//	}
 	
 	
 }

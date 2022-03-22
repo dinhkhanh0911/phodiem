@@ -39,24 +39,24 @@ public class Mark {
 	public void setMarkId(long markId) {
 		this.markId = markId;
 	}
-	public MarkConfig getMarkConfig() {
-		return markConfig;
-	}
-	public void setMarkConfig(MarkConfig markConfig) {
-		this.markConfig = markConfig;
-	}
+//	public MarkConfig getMarkConfig() {
+//		return markConfig;
+//	}
+//	public void setMarkConfig(MarkConfig markConfig) {
+//		this.markConfig = markConfig;
+//	}
 	public float getStudentmark() {
 		return studentmark;
 	}
 	public void setStudentmark(float studentmark) {
 		this.studentmark = studentmark;
 	}
-	public StudentClass getStudentClass() {
-		return studentClass;
-	}
-	public void setStudentClass(StudentClass studentClass) {
-		this.studentClass = studentClass;
-	}
+//	public StudentClass getStudentClass() {
+//		return studentClass;
+//	}
+//	public void setStudentClass(StudentClass studentClass) {
+//		this.studentClass = studentClass;
+//	}
 	
 	
 	
