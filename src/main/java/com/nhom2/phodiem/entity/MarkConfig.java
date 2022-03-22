@@ -37,36 +37,71 @@ public class MarkConfig {
 	@ManyToOne
 	@JoinColumn(name = "subjectId")
 	private Subject subject;
+
+	public long getMarkConfigId() {
+		return markConfigId;
+	}
+
+	public void setMarkConfigId(long markConfigId) {
+		this.markConfigId = markConfigId;
+	}
+
+	public String getMarkConfigName() {
+		return markConfigName;
+	}
+
+	public void setMarkConfigName(String markConfigName) {
+		this.markConfigName = markConfigName;
+	}
+
+	public int getMarkConfigPrecent() {
+		return markConfigPrecent;
+	}
+
+	public void setMarkConfigPrecent(int markConfigPrecent) {
+		this.markConfigPrecent = markConfigPrecent;
+	}
+
+	public String getCreateBy() {
+		return createBy;
+	}
+
+	public void setCreateBy(String createBy) {
+		this.createBy = createBy;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public String getModifiedBy() {
+		return modifiedBy;
+	}
+
+	public void setModifiedBy(String modifiedBy) {
+		this.modifiedBy = modifiedBy;
+	}
+
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+
+	public void setModifiedDate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
+	}
+
+	public Subject getSubject() {
+		return subject;
+	}
+
+	public void setSubject(Subject subject) {
+		this.subject = subject;
+	}
 	
-	/*
-	 * @OneToMany(mappedBy = "markConfig") private Set<Mark> marks;
-	 */
-	/*
-	 * public MarkConfig() {
-	 * 
-	 * } public MarkConfig(long markConfigId, String markConfigName, int
-	 * markConfigPrecent,long subjectId, String createBy, Date createDate, String
-	 * modifiedBy, Date modifiedDate) {
-	 * 
-	 * this.markConfigId = markConfigId; this.markConfigName = markConfigName;
-	 * this.markConfigPrecent = markConfigPrecent; this.subjectId = subjectId;
-	 * this.createBy = createBy; this.createDate = createDate; this.modifiedBy =
-	 * modifiedBy; this.modifiedDate = modifiedDate; } public long getMarkConfigId()
-	 * { return markConfigId; } public void setMarkConfigId(long markConfigId) {
-	 * this.markConfigId = markConfigId; } public long getSubjectId() { return
-	 * subjectId; } public void setSubjectId(long subjectId) { this.subjectId =
-	 * subjectId; } public String getMarkConfigName() { return markConfigName; }
-	 * public void setMarkConfigName(String markConfigName) { this.markConfigName =
-	 * markConfigName; } public int getMarkConfigPrecent() { return
-	 * markConfigPrecent; } public void setMarkConfigPrecent(int markConfigPrecent)
-	 * { this.markConfigPrecent = markConfigPrecent; } public String getCreateBy() {
-	 * return createBy; } public void setCreateBy(String createBy) { this.createBy =
-	 * createBy; } public Date getCreateDate() { return createDate; } public void
-	 * setCreateDate(Date createDate) { this.createDate = createDate; } public
-	 * String getModifiedBy() { return modifiedBy; } public void
-	 * setModifiedBy(String modifiedBy) { this.modifiedBy = modifiedBy; } public
-	 * Date getModifiedDate() { return modifiedDate; } public void
-	 * setModifiedDate(Date modifiedDate) { this.modifiedDate = modifiedDate; }
-	 */
+	
 	
 }

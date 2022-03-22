@@ -39,56 +39,72 @@ public class Student {
 	
 	@OneToMany(mappedBy = "student")
 	private Set<StudentClass> studentClasses;
+
+	public long getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(long studentId) {
+		this.studentId = studentId;
+	}
+
+	public String getStudentCodeString() {
+		return studentCodeString;
+	}
+
+	public void setStudentCodeString(String studentCodeString) {
+		this.studentCodeString = studentCodeString;
+	}
+
+	public String getCreateBy() {
+		return createBy;
+	}
+
+	public void setCreateBy(String createBy) {
+		this.createBy = createBy;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public String getModifiedByString() {
+		return modifiedByString;
+	}
+
+	public void setModifiedByString(String modifiedByString) {
+		this.modifiedByString = modifiedByString;
+	}
+
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+
+	public void setModifiedDate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Set<StudentClass> getStudentClasses() {
+		return studentClasses;
+	}
+
+	public void setStudentClasses(Set<StudentClass> studentClasses) {
+		this.studentClasses = studentClasses;
+	}
 	
 	
-	/*
-	 * public Student(long studentId, String studentCodeString, long userId,Long
-	 * mClassId ,String createBy, Date createDate, String modifiedByString, Date
-	 * modifiedDate) {
-	 * 
-	 * this.studentId = studentId; this.studentCodeString = studentCodeString;
-	 * this.userId = userId; this.mClassId = mClassId; this.createBy = createBy;
-	 * this.createDate = createDate; this.modifiedByString = modifiedByString;
-	 * this.modifiedDate = modifiedDate; }
-	 * 
-	 * public long getmClassId() { return mClassId; }
-	 * 
-	 * public void setmClassId(long mClassId) { this.mClassId = mClassId; }
-	 * 
-	 * public Student() {
-	 * 
-	 * }
-	 * 
-	 * public long getStudentId() { return studentId; }
-	 * 
-	 * public void setStudentId(long studentId) { this.studentId = studentId; }
-	 * 
-	 * public String getStudentCodeString() { return studentCodeString; }
-	 * 
-	 * public void setStudentCodeString(String studentCodeString) {
-	 * this.studentCodeString = studentCodeString; }
-	 * 
-	 * public long getUserId() { return userId; }
-	 * 
-	 * public void setUserId(long userId) { this.userId = userId; }
-	 * 
-	 * public String getCreateBy() { return createBy; }
-	 * 
-	 * public void setCreateBy(String createBy) { this.createBy = createBy; }
-	 * 
-	 * public Date getCreateDate() { return createDate; }
-	 * 
-	 * public void setCreateDate(Date createDate) { this.createDate = createDate; }
-	 * 
-	 * public String getModifiedByString() { return modifiedByString; }
-	 * 
-	 * public void setModifiedByString(String modifiedByString) {
-	 * this.modifiedByString = modifiedByString; }
-	 * 
-	 * public Date getModifiedDate() { return modifiedDate; }
-	 * 
-	 * public void setModifiedDate(Date modifiedDate) { this.modifiedDate =
-	 * modifiedDate; }
-	 */
+	
 
 }

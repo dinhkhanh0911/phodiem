@@ -33,23 +33,31 @@ public class Mark {
 	@ManyToOne
 	@JoinColumn(name = "studentClassId")
 	private StudentClass studentClass;
+	public long getMarkId() {
+		return markId;
+	}
+	public void setMarkId(long markId) {
+		this.markId = markId;
+	}
+	public MarkConfig getMarkConfig() {
+		return markConfig;
+	}
+	public void setMarkConfig(MarkConfig markConfig) {
+		this.markConfig = markConfig;
+	}
+	public float getStudentmark() {
+		return studentmark;
+	}
+	public void setStudentmark(float studentmark) {
+		this.studentmark = studentmark;
+	}
+	public StudentClass getStudentClass() {
+		return studentClass;
+	}
+	public void setStudentClass(StudentClass studentClass) {
+		this.studentClass = studentClass;
+	}
 	
 	
-	
-	/*
-	 * public Mark() { } public Mark(long markId, long markconfigId, float
-	 * markFinal, long studentId, long subjectId, long studentmark) { this.markId =
-	 * markId; this.markconfigId = markconfigId; this.studentmark = studentmark;
-	 * this.studentId = studentId; this.subjectId = subjectId; this.markconfigId =
-	 * markconfigId; } public long getMarkId() { return markId; } public void
-	 * setMarkId(long markId) { this.markId = markId; } public long getStudentId() {
-	 * return studentId; } public void setStudentId(long studentId) { this.studentId
-	 * = studentId; } public long getSubjectId() { return subjectId; } public void
-	 * setSubjectId(long subjectId) { this.subjectId = subjectId; } public long
-	 * getMarkconfigId() { return markconfigId; } public void setMarkconfigId(long
-	 * markconfigId) { this.markconfigId = markconfigId; } public float
-	 * getStudentmark() { return studentmark; } public void setStudentmark(float
-	 * studentmark) { this.studentmark = studentmark; }
-	 */
 	
 }
