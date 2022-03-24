@@ -116,29 +116,29 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2  d-lg-inline text-gray-600 small" th:text= "${session.user}"></span>
                                 <img class="img-profile rounded-circle"
-                                     src="~/Content/img/undraw_profile.svg">
+                                     th:src="@{/content/img/undraw_profile.svg}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                  aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
+                                <a class="dropdown-item" href="/nguoi-dung/ca-nhan">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    Thông cá nhân
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Activity Log
-                                </a>
+                                </a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Đăng xuất
                                 </a>
                             </div>
                         </li>
@@ -164,7 +164,7 @@
                                 <!-- @*Divider*@ -->
                                 <div class="border-bottom body-navbar__border-bottom"></div>
                                 <li class="nav-item">
-                                    <a href="/nguoi-dung/index" class="nav-item__link">
+                                    <a href="/nguoi-dung/menu-quan-ly" class="nav-item__link">
                                         <i class="fa fa-plus-circle" aria-hidden="true"></i>
                                         <span>Quản lý người dùng</span>
                                     </a>
@@ -213,15 +213,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Xác nhận</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Bạn có muốn đăng xuất không</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Không</button>
+                    <a class="btn btn-primary" href="/dang-nhap/dang-xuat">Đăng xuất</a>
                 </div>
             </div>
         </div>
@@ -230,6 +230,12 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous"></script>
+    
+    <script th:src="@{/js/validation.js}"></script>
+    <script th:src="@{/js/userStyle.js}"></script>
+	<script>
+		
+	</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js">
@@ -237,25 +243,25 @@
     <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js">
     </script>
     <!-- Bootstrap core JavaScript-->
-    <script src="~/Content/vendor/jquery/jquery.min.js"></script>
-    <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/content/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/content/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
     <!--DataTable-->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
     <!--/.DataTable-->
     <!-- Core plugin JavaScript-->
-    <script src="~/Content/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script th:src="@{/content/vendor/jquery-easing/jquery.easing.min.js}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="~/Content/js/sb-admin-2.min.js"></script>
+    <script th:src="@{/content/js/sb-admin-2.min.js}"></script>
 
     <!-- Page level plugins -->
-    <script src="~/Content/vendor/chart.js/Chart.min.js"></script>
+    <script th:src="@{/content/vendor/chart.js/Chart.min.js}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="~/Content/js/demo/chart-area-demo.js"></script>
-    <script src="~/Content/js/demo/chart-pie-demo.js"></script>
+    <script th:src="@{/content/js/demo/chart-area-demo.js}"></script>
+    <script th:src="@{/content/js/demo/chart-pie-demo.js}"></script>
 
 </body>
 

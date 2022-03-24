@@ -37,9 +37,9 @@
                 </h4>
             </div>
             <div class="container__page-content">
-                <form class="form" action="/dang-nhap/dang-nhap" method="post" >
-                	<input class = "form__input" placeholder = "Tài khoản" type "text">
-                	<input class = "form__input" placeholder = "Tài khoản" type "password">
+                <form class="form" id="login" >
+                	<input class = "form__input" placeholder = "Tài khoản" type="text" name="userName">
+                	<input class = "form__input" placeholder = "Tài khoản" type="password" name="passWord">
                     <div class="form__sub-option">
                         <a href="./ForgotPassword" class="form__sub-option-text">Quên mật khẩu</a>
                     </div>
@@ -57,6 +57,8 @@
 
     </div>
 
-
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+	crossorigin="anonymous"></script>
+	<script th:src="@{/js/login.js}" ></script>
 </body>
 </html>

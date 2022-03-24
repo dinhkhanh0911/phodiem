@@ -37,7 +37,7 @@ function fill(data) {
 }
 (function () {
 
-    $('#importMedicalRecord').submit(function (even) {
+    $('#login').submit(function (even) {
         
 
         $.ajax({
