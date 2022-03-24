@@ -3,7 +3,8 @@
 <html layout:decorate="~{layout/layoutAdmin.html}">
 <head>
 <meta charset="utf-8">
-<title>Insert title here</title>
+<title>Cài đặt cấu hình</title>
+<script th:src="@{/js/subject.js}"></script>
 </head>
 <body>
 	<div class="wrapper wrapper__custom-height wrapper-block"
@@ -17,35 +18,62 @@
 					id="importMedicalRecord">
 					<div class="row">
 
+						<div class="col l-12 m-12 c-12">
+	                           <div class="form-group form__import-item">
+	                               <label class="form__import-label"> Chọn môn học </label>
+	                               <div class="input-container">
+		                               <select class="form__import-select"  id="subjectId">
+		                               		<!-- <option value="1"> Nam </option>
+		                               		<option value="0"> Nữ </option> -->
+		                               </select>
+		                               <span class="error-message"></span>
+	                               </div>
+	                           </div>
+	                       </div>
 						<div class="col l-4 m-6 c-12">
-							<div class="form__import-item">
-								<span class="form__import-label"> Ngày bắt đầu </span> <input
-									class="form__import-select" type="date" id="startdate"
-									name="startdate">
-							</div>
-						</div>
-						<div class="col l-4 m-6 c-12">
-							<div class="form__import-item">
-								<span class="form__import-label"> Ngày kết thúc </span> <input
-									class="form__import-select" type="date" id="enddate"
-									name="enddate">
-							</div>
-						</div>
-						<div class="col l-4 m-6 c-12">
-							<div class="form__import-item">
-								<span class="form__import-label"> Loại báo cáo </span> <select
-									onchange="xuat(this)" class="form-control" name="loaiBC">
-									<option value="1">Xuất báo cáo ca nhiễm</option>
-									<option value="2">Xuất báo cáo ca tử vong</option>
-									<option value="3">Xuất báo cáo ca khỏi bệnh</option>
-									<option value="4">Xuất thông tin truy vết</option>
-									<option value="5">Xuất thông tin điều trị</option>
-									<option value="6">Xuất Bệnh án</option>
-
-								</select>
-
-							</div>
-						</div>
+	                       		<div class="form-group">
+		                       		<div class=" form__import-item">
+		                               <label class="form__import-label">Tỷ lệ điểm chuyên cần(<span>*</span>)</label>
+		                               <div class="input-container">
+			                               <input class="form__import-select" rules="required|name|min:6" name="fullName" />
+			                               <span class="error-message"></span>
+		                               </div>
+		                           </div>
+	                           </div>
+	                       </div>
+	                       <div class="col l-4 m-6 c-12">
+	                       		<div class="form-group">
+		                       		<div class=" form__import-item">
+		                               <label class="form__import-label"> Tỷ lệ điểm kiểm tra(<span>*</span>)</label>
+		                               <div class="input-container">
+			                               <input class="form__import-select" rules="required|name|min:6" name="fullName" />
+			                               <span class="error-message"></span>
+		                               </div>
+		                           </div>
+	                           </div>
+	                       </div>
+	                       <div class="col l-4 m-6 c-12">
+	                       		<div class="form-group">
+		                       		<div class=" form__import-item">
+		                               <label class="form__import-label"> Tỷ lệ điểm thực hành(<span>*</span>)</label>
+		                               <div class="input-container">
+			                               <input class="form__import-select" rules="required|name|min:6" name="fullName" />
+			                               <span class="error-message"></span>
+		                               </div>
+		                           </div>
+	                           </div>
+	                       </div>
+	                       <div class="col l-4 m-6 c-12">
+	                       		<div class="form-group">
+		                       		<div class=" form__import-item">
+		                               <label class="form__import-label"> Tỷ lệ điểm cuối kỳ(<span>*</span>)</label>
+		                               <div class="input-container">
+			                               <input class="form__import-select" rules="required|name|min:6" name="fullName" />
+			                               <span class="error-message"></span>
+		                               </div>
+		                           </div>
+	                           </div>
+	                       </div>
 					</div>
 					<div class="btn-container">
 						<button class="btn btn-primary btn__save btn-submit">

@@ -74,18 +74,6 @@ public class Teacher {
 	public void setModifiedDate(Date modifiedDate) {
 		this.modifiedDate = modifiedDate;
 	}
-//	public User getUser() {
-//		return user;
-//	}
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
-//	public Set<MClass> getmClasses() {
-//		return mClasses;
-//	}
-//	public void setmClasses(Set<MClass> mClasses) {
-//		this.mClasses = mClasses;
-//	}
 	
 	
 	

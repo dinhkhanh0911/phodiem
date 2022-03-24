@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ConfigController {
-	@GetMapping("/config")
+	@GetMapping("/cau-hinh")
 	public String index() {
 		return "config/config";
 	}
