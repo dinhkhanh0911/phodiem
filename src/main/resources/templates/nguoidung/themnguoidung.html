@@ -2,43 +2,181 @@
 <html layout:decorate="~{layout/layoutAdmin.html}">
 <head>
 	<meta charset="utf-8">
-	<title>Insert title here</title>
+	<title>Thông tin người dùng</title>
 </head>
 <body>
 	<div class="wrapper wrapper__custom-height wrapper-block" layout:fragment="content">
 	    <div class="container__page-fullWidth">
 	        <div class="name__page">
 	            <h4 class="name__page-tilte">
-	                Thêm bệnh nhân
+	                Thêm thông tin người dùng
 	            </h4>
 	        </div>
 	        <div class="container__page-content">
 	            
-	               <form class="form" method="post" action="/nguoi-dung/them-nguoi-dung">
+	               <form class="form" id="changeUserForm" action="">
 	                   <div class="row">
+	                   		
 	                       <div class="col l-4 m-6 c-12">
-	                           <div class="form__import-item">
-	                               <label class="form__import-label"> Tên người dùng </label>
-	                               <input class="form__import-select" name="name"/>
+	                       <div class="form-group">
+		                       <div class="form__import-item">
+	                               <label class="form__import-label"> Họ và tên(<span>*</span>)</label>
+	                               <div class="input-container">
+	                               		<input class="form__import-select" rules="required|name|min:6" name="fullName" />
+	                               		<span class="error-message"></span>
+	                               </div>
+	                               
+	                           </div>
+	                           
+	                       </div>
+	                           
+	                       </div>
+	                       <div class="col l-4 m-6 c-12">
+	                           <div class="form-group ">
+	                               <div class="form__import-item">
+	                               		<label class="form__import-label"> Giới tính </label>
+	                               		<div class="input-container">
+	                               			<select class="form__import-select" name="gender" type="date">
+			                               		<option value="1"> Nam </option>
+			                               		<option value="0"> Nữ </option>
+		                               		</select>
+		                               		<span class="error-message"></span>
+	                               		</div>
+		                               
+	                               </div>
+	                               
 	                           </div>
 	                       </div>
 	                       <div class="col l-4 m-6 c-12">
-	                           <div class="form__import-item">
-	                               <label class="form__import-label"> Tuổi </label>
-	                               <input class="form__import-select" name="age"/>
+	                           <div class="form-group ">
+	                               <div class="form__import-item">
+	                               		<label class="form__import-label"> Ngày sinh(<span>*</span>)</label>
+		                               <div class="input-container">
+		                               		<input rules="required" class="form__import-select" name="dateOfBrith" type="date"/>
+		                               		<span class="error-message"></span>
+		                               </div>
+	                               </div>
+	                               
+	                           </div>
+	                           
+	                       </div>
+	                       <div class="col l-4 m-6 c-12">
+	                           <div class="form-group ">
+	                               <div class="form__import-item">
+		                               <label class="form__import-label"> Số CCCD(<span>*</span>)</label>
+		                               <div class="input-container">
+			                               	<input rules="required" class="form__import-select" name="identityNumber"/>
+			                               	<span class="error-message"></span>
+		                               </div>
+	                               </div>
+	                               
+	                           </div>
+	                       </div>
+	                       <div class="col l-4 m-6 c-12">
+	                           <div class="form-group ">
+	                               <div class="form__import-item">
+	                               		<label class="form__import-label"> Ngày cấp </label>
+	                               		<div class="input-container">
+		                               		<input class="form__import-select" name="identityDate" type="date" />
+		                               		<span class="error-message"></span>
+	                               		</div>
+	                               </div>
+	                               
+	                           </div>
+	                       </div>
+	                       <div class="col l-4 m-6 c-12">
+	                           <div class="form-group ">
+	                               <div class="form__import-item">
+	                               		<label class="form__import-label"> Nơi cấp </label>
+		                               <div class="input-container">
+			                               <input class="form__import-select" name="identityPlace"/>
+			                               <span class="error-message"></span>
+		                               </div>
+	                               </div>
+	                               
 	                           </div>
 	                       </div>
 	                       
-	                       
+	                       <div class="col l-4 m-6 c-12">
+	                           <div class="form-group ">
+	                               <div class="form__import-item">
+	                               		<label class="form__import-label"> Địa chỉ(<span>*</span>)</label>
+		                               <div class="input-container">
+			                               <input rules="required" class="form__import-select" name="address"/>
+			                               <span class="error-message"></span>
+		                               </div>
+	                               </div>
+	                               
+	                           </div>
+	                       </div>
+	                       <div class="col l-4 m-6 c-12">
+	                           <div class="form-group ">
+	                               <div class="form__import-item">
+		                               <label class="form__import-label"> SĐT </label>
+		                               <div class="input-container">
+			                               <input class="form__import-select" name="phoneNumber" />
+			                               <span class="error-message"></span>
+		                               </div>
+	                               </div>
+	                               
+	                           </div>
+	                       </div>
+	                       <div class="col l-4 m-6 c-12">
+	                           <div class="form-group ">
+	                               <div class="form__import-item">
+	                               		<label class="form__import-label"> Email </label>
+	                               		<div class="input-container">
+	                               			<input rules="required|email" class="form__import-select" name="email"/>
+	                               			<span class="error-message"></span>
+	                               		</div>
+	                               </div>
+	                               
+	                           </div>
+	                       </div>
+	                      	<div class="col l-4 m-6 c-12">
+	                           <div class="form-group ">
+	                               <div class="form__import-item">
+		                               	<label class="form__import-label"> Vị trí làm việc </label>
+		                               <div class="input-container">
+			                               <select class="form__import-select" name="positionId" type="date">
+			                               		
+			                               </select>
+			                               <span class="error-message"></span>
+		                               </div>
+	                               </div>
+	                               
+	                           </div>
+	                       </div>
+	                       <div class="col l-4 m-6 c-12">
+	                           <div class="form-group ">
+	                               <div class="form__import-item">
+	                               		<label class="form__import-label"> Tài khoản </label>
+		                               <div class="input-container">
+			                               <input rules="required" class="form__import-select" name="useName"/>
+			                               <span class="error-message"></span>
+		                               </div>
+	                               </div>
+	                               
+	                           </div>
+	                       </div>
+	                       <div class="col l-4 m-6 c-12">
+	                           <div class="form-group ">
+	                               <div class="form__import-item">
+	                               		<label class="form__import-label"> Mật khẩu </label>
+		                               <div class="input-container">
+			                               <input rules="required" class="form__import-select" name="passWord"/>
+			                               <span class="error-message"></span>
+		                               </div>
+	                               </div>
+	                               
+	                           </div>
+	                       </div>
 	                   </div>
 	                   <div class="btn-container">
 	                       <button class="btn btn-primary btn__save btn-submit" type="submit">
 	                           Lưu thông tin
 	                       </button>
-	                       <button class="btn btn__reset btn-submit btn-default">
-	                           Đặt lại
-	                       </button>
-	                       <button class="btn btn__cancel btn-submit btn-default">
+	                       <button class="btn btn__cancel btn-submit btn-default" id="submitInfoBtn">
 	                           Hủy
 	                       </button>
 	                   </div>
@@ -49,5 +187,6 @@
 	
 	
 	</div>
+	
 </body>
 </html>

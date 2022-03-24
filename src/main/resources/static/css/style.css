@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     --primary: #4E73DF;
     --top-bar__height: 4.375rem;
     --border-color: #e3e6f0;
@@ -84,7 +84,10 @@ a{
     min-height: 50px;
     
 }
-
+.nav-link span{
+	width:30px;
+	height:30px;
+}
 .nav-item__link {
     display: flex;
     align-items: center;
@@ -195,6 +198,10 @@ a{
     background-color: rgba(0,0,0,0.1);
 }
 /*form import*/
+.form .disabled{
+	display:none;
+}
+
 .form__import {
     width: 100%;
     margin-bottom: 30px;
@@ -212,7 +219,13 @@ a{
     width:35%;
     margin-right:10px;
 }
-
+.form__import-label span{
+	color:red;
+}
+.input-container{
+	width:100%;
+	flex:1;
+}
 .form__import-select {
     flex: 1;
     border-radius: 3px;
@@ -222,7 +235,16 @@ a{
     color: #555;
     display:block;
     min-height:42px;
+    width:100%;
     
+}
+.input-error input {
+	border:1px solid red;
+}
+.error-message{
+	color:red;
+	display:inline-block;
+	width:100%;
 }
 
 .btn-container{
