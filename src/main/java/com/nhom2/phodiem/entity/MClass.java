@@ -47,33 +47,103 @@ public class MClass {
 	
 	@OneToMany(mappedBy = "mClass")
 	private Set<StudentClass> studentClasses;
+
+	public long getClassId() {
+		return classId;
+	}
+
+	public void setClassId(long classId) {
+		this.classId = classId;
+	}
+
+	public String getClassNameString() {
+		return classNameString;
+	}
+
+	public void setClassNameString(String classNameString) {
+		this.classNameString = classNameString;
+	}
+
+	public String getClassCode() {
+		return classCode;
+	}
+
+	public void setClassCode(String classCode) {
+		this.classCode = classCode;
+	}
+
+	public int getStudentNumber() {
+		return studentNumber;
+	}
+
+	public void setStudentNumber(int studentNumber) {
+		this.studentNumber = studentNumber;
+	}
+
+	public String getCreateBy() {
+		return createBy;
+	}
+
+	public void setCreateBy(String createBy) {
+		this.createBy = createBy;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public String getModifiedByString() {
+		return modifiedByString;
+	}
+
+	public void setModifiedByString(String modifiedByString) {
+		this.modifiedByString = modifiedByString;
+	}
+
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+
+	public void setModifiedDate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
+	}
+
+//	public Teacher getTeacher() {
+//		return teacher;
+//	}
+//
+//	public void setTeacher(Teacher teacher) {
+//		this.teacher = teacher;
+//	}
+//
+//	public Semester getSemester() {
+//		return semester;
+//	}
+//
+//	public void setSemester(Semester semester) {
+//		this.semester = semester;
+//	}
+//
+//	public Subject getSubject() {
+//		return subject;
+//	}
+//
+//	public void setSubject(Subject subject) {
+//		this.subject = subject;
+//	}
+//
+//	public Set<StudentClass> getStudentClasses() {
+//		return studentClasses;
+//	}
+//
+//	public void setStudentClasses(Set<StudentClass> studentClasses) {
+//		this.studentClasses = studentClasses;
+//	}
 	
-	/*
-	 * public MClass() { } public MClass(long classId, String classNameString,
-	 * String classCode, int studentNumber, long teacherId, String createBy, Date
-	 * createDate, String modifiedByString, Date modifiedDate) { super();
-	 * this.classId = classId; this.classNameString = classNameString;
-	 * this.classCode = classCode; this.studentNumber = studentNumber;
-	 * this.teacherId = teacherId; this.createBy = createBy; this.createDate =
-	 * createDate; this.modifiedByString = modifiedByString; this.modifiedDate =
-	 * modifiedDate; } public long getClassId() { return classId; } public void
-	 * setClassId(long classId) { this.classId = classId; } public String
-	 * getClassNameString() { return classNameString; } public void
-	 * setClassNameString(String classNameString) { this.classNameString =
-	 * classNameString; } public String getClassCode() { return classCode; } public
-	 * void setClassCode(String classCode) { this.classCode = classCode; } public
-	 * int getStudentNumber() { return studentNumber; } public void
-	 * setStudentNumber(int studentNumber) { this.studentNumber = studentNumber; }
-	 * public long getTeacherId() { return teacherId; } public void
-	 * setTeacherId(long teacherId) { this.teacherId = teacherId; } public String
-	 * getCreateBy() { return createBy; } public void setCreateBy(String createBy) {
-	 * this.createBy = createBy; } public Date getCreateDate() { return createDate;
-	 * } public void setCreateDate(Date createDate) { this.createDate = createDate;
-	 * } public String getModifiedByString() { return modifiedByString; } public
-	 * void setModifiedByString(String modifiedByString) { this.modifiedByString =
-	 * modifiedByString; } public Date getModifiedDate() { return modifiedDate; }
-	 * public void setModifiedDate(Date modifiedDate) { this.modifiedDate =
-	 * modifiedDate; }
-	 */
+	
 
 }

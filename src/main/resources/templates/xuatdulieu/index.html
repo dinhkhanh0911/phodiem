@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html layout:decorate="~{layout/layoutAdmin.html}">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="wrapper wrapper__custom-height wrapper-block"
+		layout:fragment="content">
+		<div class="container__page-fullWidth">
+			<div class="name__page">
+				<h4 class="name__page-tilte">Xuất dữ liệu</h4>
+			</div>
+			<div class="container__page-content">
+				<form class="form" method="post" id="report">
+					<div class="row">
+						<div class="col l-4 m-6 c-12">
+							<div class="form__import-item">
+								<span class="form__import-label"> Học kỳ </span> <select
+									class="form-control" id="hocKy" name="hocKy">
+									<option value="1">Học kỳ 1</option>
+									<option value="2">Học kỳ 2</option>
+									<option value="3"></option>
+									<option value="4"></option>
+									<option value="5"></option>
+									<option value="6"></option>
+
+								</select>
+
+							</div>
+						</div>
+						<div class="col l-4 m-6 c-12">
+							<div class="form__import-item">
+								<span class="form__import-label"> Khoa </span> <select id="khoa"
+									class="form-control" name="Khoa">
+
+								</select>
+
+							</div>
+						</div>
+						<div class="col l-4 m-6 c-12">
+							<div class="form__import-item">
+								<span class="form__import-label"> Loại báo cáo </span> <select
+									class="form-control" name="loai">
+									<option value="1">Xuất báo cáo theo khoa, học kỳ</option>
+									<option value="2">Xuất báo cáo theo đầu điểm A</option>
+									<option value="3">Xuất báo cáo theo đầu điểm B</option>
+									<option value="4">Xuất báo cáo theo đầu điểm C</option>
+									<option value="5">Xuất báo cáo theo đầu điểm D</option>
+									<option value="6">Xuất báo cáo theo đầu điểm F</option>
+								</select>
+
+							</div>
+						</div>
+						<div class="col l-4 m-6 c-12">
+						<div class="form__import-item">
+							<span class="form__import-label"> Xuất báo cáo theo lớp </span> <select
+								onchange="selectClass(this)" id="lop" class="form-control" name="lop">
+
+							</select>
+
+						</div>
+						
+					</div>
+					</div>
+					<div class="btn-container">
+						<button class="btn btn-primary btn__save btn-submit"
+							id="reportSubmit">Xuất</button>
+					</div>
+					<div class="row">
+					
+				</div>
+				</form>
+				
+
+
+
+
+
+			</div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"></script>
+
+		<script th:src="@{/js/xuat-bao-cao.js}"></script>
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<html layout:decorate="~{layout/layoutAdmin.html}">
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div class="wrapper wrapper__custom-height wrapper-block"
+		layout:fragment="content">
+		<style>
+h5 {
+	color: #4e73df;
+}
+</style>
+		<link rel="stylesheet" type="text/css"
+			href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
+		<script type="text/javascript" charset="utf8"
+			src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+		<div class="container__page-fullWidth">
+			<div class="name__page">
+				<h4 class="name__page-tilte">Theo dõi điểm</h4>
+			</div>
+			<div class="container__page-content">
+				<form class="form" method="post" id="report">
+					<h5 class="">Theo dõi điểm theo học kỳ/ giáo viên</h5>
+					<div class="row">
+
+						<div class="col l-4 m-6 c-12">
+							<div class="form__import-item">
+								<span class="form__import-label"> Học kỳ </span> <select
+									class="form-control" id="hocKy1" name="hocKy1">
+									<option value="1">Học kỳ 1</option>
+									<option value="2">Học kỳ 2</option>
+								</select>
+
+							</div>
+						</div>
+						<div class="col l-4 m-6 c-12">
+							<div class="form__import-item">
+								<span class="form__import-label"> Giáo viên </span> <select
+									id="giaovien" class="form-control" name="giaoVien">
+
+								</select>
+
+							</div>
+						</div>
+						<div class="col l-4 m-6 c-12">
+							<div class="form__import-item">
+								<span class="form__import-label"> Môn học </span> <select
+									onchange="selectMon1(this)" id="mon1" class="form-control"
+									name="mon1">
+									<option value="1">Xuất báo cáo theo khoa, học kỳ</option>
+									<option value="2">Xuất báo cáo theo đầu điểm A</option>
+									<option value="3">Xuất báo cáo theo đầu điểm B</option>
+									<option value="4">Xuất báo cáo theo đầu điểm C</option>
+									<option value="5">Xuất báo cáo theo đầu điểm D</option>
+									<option value="6">Xuất báo cáo theo đầu điểm F</option>
+								</select>
+
+							</div>
+						</div>
+
+					</div>
+					<h5 class="">Theo dõi điểm theo học kỳ/ khoa</h5>
+					<div class="row">
+
+						<div class="col l-4 m-6 c-12">
+							<div class="form__import-item">
+								<span class="form__import-label"> Học kỳ </span> <select
+									class="form-control" id="hocKy2" name="hocKy2">
+									<option value="1">Học kỳ 1</option>
+									<option value="2">Học kỳ 2</option>
+								</select>
+
+							</div>
+						</div>
+						<div class="col l-4 m-6 c-12">
+							<div class="form__import-item">
+								<span class="form__import-label"> Khoa </span> <select id="khoa"
+									class="form-control" name="khoa">
+
+								</select>
+
+							</div>
+						</div>
+						<div class="col l-4 m-6 c-12">
+							<div class="form__import-item">
+								<span class="form__import-label"> Môn học </span> <select
+									id="mon2" onchange="selectMon2(this)" class="form-control"
+									name="mon2">
+									<option value="1">Xuất báo cáo theo khoa, học kỳ</option>
+									<option value="2">Xuất báo cáo theo đầu điểm A</option>
+									<option value="3">Xuất báo cáo theo đầu điểm B</option>
+									<option value="4">Xuất báo cáo theo đầu điểm C</option>
+									<option value="5">Xuất báo cáo theo đầu điểm D</option>
+									<option value="6">Xuất báo cáo theo đầu điểm F</option>
+								</select>
+
+							</div>
+						</div>
+
+					</div>
+					<h5 class="">Theo dõi điểm theo học kỳ/ lớp</h5>
+					<div class="row">
+
+						<div class="col l-4 m-6 c-12">
+							<div class="form__import-item">
+								<span class="form__import-label"> Học kỳ </span> <select
+									class="form-control" id="hocKy3" name="hocKy3">
+									<option value="1">Học kỳ 1</option>
+									<option value="2">Học kỳ 2</option>
+								</select>
+
+							</div>
+						</div>
+						<div class="col l-4 m-6 c-12">
+							<div class="form__import-item">
+								<span class="form__import-label"> Lớp </span> <select id="lop"
+									class="form-control" name="lop">
+
+								</select>
+
+							</div>
+						</div>
+						<div class="col l-4 m-6 c-12">
+							<div class="form__import-item">
+								<span class="form__import-label"> Môn học </span> <select
+									id="mon3" onchange="selectMon3(this)" class="form-control"
+									name="mon1">
+									<option value="1">Xuất báo cáo theo khoa, học kỳ</option>
+									<option value="2">Xuất báo cáo theo đầu điểm A</option>
+									<option value="3">Xuất báo cáo theo đầu điểm B</option>
+									<option value="4">Xuất báo cáo theo đầu điểm C</option>
+									<option value="5">Xuất báo cáo theo đầu điểm D</option>
+									<option value="6">Xuất báo cáo theo đầu điểm F</option>
+								</select>
+
+							</div>
+						</div>
+
+					</div>
+				</form>
+				<div class="row">
+
+					<div class="table col-12">
+						<table id="table_id" class="display col-12">
+							<thead>
+								<tr>
+									<th>stt</th>
+									<th>Sinh viên</th>
+									<th>Điểm quá trình</th>
+									<th>Điểm TN/TH</th>
+									<th>Điểm  KT</th>
+									<th>Điểm Thi</th>
+									<th>Điểm Tổng kết</th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>Row 1 Data 2</td>
+									<td>Row 1 Data 1</td>
+									<td>Row 1 Data 2</td>
+									<td>Row 1 Data 1</td>
+									<td>Row 1 Data 2</td>
+									<td>Row 1 Data 1</td>
+
+									
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>Row 1 Data 2</td>
+									<td>Row 1 Data 1</td>
+									<td>Row 1 Data 2</td>
+									<td>Row 1 Data 1</td>
+									<td>Row 1 Data 2</td>
+									<td>Row 1 Data 1</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+
+
+			</div>
+		</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"></script>
+		<script th:src="@{/js/theodoidiem.js}"></script>
+	</div>
+</body>
+</html>

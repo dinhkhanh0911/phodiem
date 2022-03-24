@@ -8,12 +8,11 @@ import org.springframework.data.jpa.repository.Query;
 import com.nhom2.phodiem.entity.Person;
 import com.nhom2.phodiem.entity.Semester;
 
-public interface  PersonRepository extends JpaRepository<Person,Integer> {
-	List<Person> findByName(String name);
+public interface SemesterRespository extends JpaRepository<Semester, Integer>{
+
 	
 	
 	@Query("SELECT m FROM Person m WHERE m.name LIKE %:name%")
 	List<Person> searchByNameLike(String name);
-	
 
 }
