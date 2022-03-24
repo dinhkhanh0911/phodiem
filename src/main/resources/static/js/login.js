@@ -22,6 +22,7 @@ function handerLoginSubmit(){
                 console.log(xhr);
                 console.log(ajaxOptions);
                 console.log(thrownError);
+                alert("Đăng nhập thất bại")
             }
         }).done(function (response) {
             

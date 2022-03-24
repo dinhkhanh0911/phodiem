@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Thông tin người dùng</title>
+	<script th:src="@{/js/userStyle.js}"></script>
 </head>
 <body>
 	<div class="wrapper wrapper__custom-height wrapper-block" layout:fragment="content">
@@ -124,7 +125,7 @@
 	                       <div class="col l-4 m-6 c-12">
 	                           <div class="form-group ">
 	                               <div class="form__import-item">
-	                               		<label class="form__import-label"> Email </label>
+	                               		<label class="form__import-label"> Email(<span>*</span>) </label>
 	                               		<div class="input-container">
 	                               			<input rules="required|email" class="form__import-select" name="email"/>
 	                               			<span class="error-message"></span>
@@ -136,7 +137,7 @@
 	                      	<div class="col l-4 m-6 c-12">
 	                           <div class="form-group ">
 	                               <div class="form__import-item">
-		                               	<label class="form__import-label"> Vị trí làm việc </label>
+		                               	<label class="form__import-label"> Vị trí </label>
 		                               <div class="input-container">
 			                               <select class="form__import-select" name="positionId" type="date">
 			                               		
@@ -150,9 +151,9 @@
 	                       <div class="col l-4 m-6 c-12">
 	                           <div class="form-group ">
 	                               <div class="form__import-item">
-	                               		<label class="form__import-label"> Tài khoản </label>
+	                               		<label class="form__import-label"> Tài khoản(<span>*</span>) </label>
 		                               <div class="input-container">
-			                               <input rules="required" class="form__import-select" name="useName"/>
+			                               <input rules="required" class="form__import-select" name="userName"/>
 			                               <span class="error-message"></span>
 		                               </div>
 	                               </div>
@@ -162,7 +163,7 @@
 	                       <div class="col l-4 m-6 c-12">
 	                           <div class="form-group ">
 	                               <div class="form__import-item">
-	                               		<label class="form__import-label"> Mật khẩu </label>
+	                               		<label class="form__import-label"> Mật khẩu(<span>*</span>) </label>
 		                               <div class="input-container">
 			                               <input rules="required" class="form__import-select" name="passWord"/>
 			                               <span class="error-message"></span>

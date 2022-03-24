@@ -55,6 +55,7 @@ function Validator(formName,errorHandle){
     const formElement = document.querySelector(formName)
     if(formElement){
         var inputs = formElement.querySelectorAll('[name][rules]')
+        
         for(var input of inputs){
 
             var rules = input.getAttribute('rules').split('|')
@@ -80,10 +81,14 @@ function Validator(formName,errorHandle){
                     formRules[input.name]= [ruleFun]
                 }
             }
+            
             input.onblur = handleValidate
+            
             input.oninput = handleClearError
         }
+        
         function handleValidate(event){
+			
             var rules = formRules[event.target.name]
             var errorMessage;
             for(var rule of rules){
@@ -100,6 +105,7 @@ function Validator(formName,errorHandle){
 
         }
         function handleClearError(event){
+	
             var parentElement = getParent(event.target,'.form-group')
             parentElement.classList.remove("input-error");
             var errorMessageElement = parentElement.querySelector('.error-message')
@@ -132,7 +138,6 @@ function Validator(formName,errorHandle){
                         values[input.name] = input.value
                         return values
                     },{})
-                    console.log(dataform)
                     this.onSubmit(dataform)
                 }
                 else{
@@ -140,7 +145,9 @@ function Validator(formName,errorHandle){
                 }
             }
             else{
-				errorHandle()
+				var inputs = formElement.querySelectorAll('.input-error [name][rules]')
+				console.log(inputs[0])
+				inputs[0].focus()
 			}
         }
     }

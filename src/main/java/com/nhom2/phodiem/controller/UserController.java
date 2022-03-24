@@ -2,7 +2,11 @@ package com.nhom2.phodiem.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -24,7 +28,7 @@ import com.nhom2.phodiem.respository.UserRepository;
 public class UserController {
 	
 	
-	
+	 private static final Logger LOGGER = LogManager.getLogger(UserController.class);
 	
 	@Autowired
 	UserRepository repository;
@@ -36,65 +40,96 @@ public class UserController {
 	
 	@GetMapping(value = "/menu-quan-ly")
 	public String menuUser(HttpSession session) {
-		if(!checkSession(session)) return "/nguoidung/menunguoidung";
-		return "redirect:/dang-nhap";
+		try {
+			if(!checkSession(session)) return "/nguoidung/menunguoidung";
+			return "redirect:/dang-nhap";
+		} catch (Exception e) {
+			// TODO: handle exception
+			LOGGER.error(e.getMessage());
+			return "redirect:/dang-nhap";
+		}
 	}
 	@GetMapping(value = "/them-nguoi-dung")
 	public String create(HttpSession session) {
-		if(!checkSession(session)) {
-			
-			return "/nguoidung/themnguoidung";
+		
+		try {
+			if(!checkSession(session)) {
+				
+				return "/nguoidung/themnguoidung";
+			}
+			return "redirect:/dang-nhap";
+		} catch (Exception e) {
+			// TODO: handle exception
+			LOGGER.error(e.getMessage());
+			return "redirect:/dang-nhap";
 		}
-		return "redirect:/dang-nhap";
 	}
-	
-//	@PostMapping(value = "/them-nguoi-dung")
-//	public String create(@ModelAttribute Person user) {
-//		personRepository.save(user);
-//		return "redirect:/nguoi-dung/cap-nhat-nguoi-dung";
-//		
-//	}
 	
 	@GetMapping(value = "/thay-doi-thong-tin-nguoi-dung/{userId}")
 	public String changeInfo(HttpSession session,@PathVariable long userId,Model model) {
-		if(!checkSession(session)) {
-			
-			User user = repository.findById(userId).get();
-			System.out.println(user);
-			model.addAttribute("userModel", user);
-			return "/nguoidung/thongtincanhan";
-		}
 		
-		return "redirect:/dang-nhap";
+		try {
+			if(!checkSession(session)) {
+				
+				User user = repository.findById(userId).get();
+				System.out.println(user);
+				model.addAttribute("userModel", user);
+				return "/nguoidung/capnhatnguoidung";
+			}
+			
+			return "redirect:/dang-nhap";
+		} catch (Exception e) {
+			// TODO: handle exception
+			LOGGER.error(e.getMessage());
+			return "redirect:/dang-nhap";
+		}
 	}
 	@GetMapping(value = "/tim-kiem")
 	public String changeInfo(HttpSession session) {
-		if(!checkSession(session)) {
-			return "/nguoidung/timkiemnguoidung";
-		}
 		
-		return "redirect:/dang-nhap";
+		try {
+			if(!checkSession(session)) {
+				return "/nguoidung/timkiemnguoidung";
+			}
+			
+			return "redirect:/dang-nhap";
+		} catch (Exception e) {
+			// TODO: handle exception
+			LOGGER.error(e.getMessage());
+			return "redirect:/dang-nhap";
+		}
 	}
 	
 	@GetMapping(value = "/ca-nhan")
 	public String info(HttpSession session) {
-		if(!checkSession(session)) return "/nguoidung/menucanhan";
-		return "redirect:/dang-nhap";
+		
+		try {
+			if(!checkSession(session)) return "/nguoidung/menucanhan";
+			return "redirect:/dang-nhap";
+		} catch (Exception e) {
+			// TODO: handle exception
+			LOGGER.error(e.getMessage());
+			return "redirect:/dang-nhap";
+		}
 	}
 	
 	@GetMapping(value = "/thay-doi-thong-tin-ca-nhan")
 	public String changeInfo(HttpSession session,Model model) {
-		if(!checkSession(session)) {
+		try {
+			if(!checkSession(session)) {
+				
+//				String userName = (String) session.getAttribute("user");
+				Long userId = (Long)session.getAttribute("userId");
+				
+				User user = repository.findById(userId).get();
+				model.addAttribute("userModel", user);
+				return "/nguoidung/thongtincanhan";
+			}
 			
-//			String userName = (String) session.getAttribute("user");
-			Long userId = (Long)session.getAttribute("userId");
-			
-			User user = repository.findById(userId).get();
-			System.out.println(user);
-			model.addAttribute("userModel", user);
-			return "/nguoidung/thongtincanhan";
+			return "redirect:/dang-nhap";
+		} catch (Exception e) {
+			LOGGER.error(e.getMessage());
+			return "redirect:/dang-nhap";
 		}
-		
-		return "redirect:/dang-nhap";
 	}
 }

@@ -54,6 +54,7 @@ a{
 .body-navbar {
     color: #717479;
     padding-top: 30px;
+    background-color:#fff;
 }
 .body-navbar__border-bottom {
     border-bottom:1px solid var(--primary)!important;
@@ -84,10 +85,7 @@ a{
     min-height: 50px;
     
 }
-.nav-link span{
-	width:30px;
-	height:30px;
-}
+
 .nav-item__link {
     display: flex;
     align-items: center;
@@ -226,18 +224,22 @@ a{
 	width:100%;
 	flex:1;
 }
+.input-container select{
+	cursor: pointer;
+}
 .form__import-select {
     flex: 1;
     border-radius: 3px;
     border: 1px solid rgba(0,0,0,0.5);
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 5px;
     color: #555;
     display:block;
     min-height:42px;
     width:100%;
-    
+    cursor: text;
 }
+
 .input-error input {
 	border:1px solid red;
 }

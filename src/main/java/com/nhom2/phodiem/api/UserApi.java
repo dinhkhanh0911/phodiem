@@ -6,11 +6,14 @@ import java.util.Set;
 
 import javax.validation.Valid;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.support.Repositories;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nhom2.phodiem.controller.UserController;
 import com.nhom2.phodiem.entity.Person;
 import com.nhom2.phodiem.entity.ResponseObject;
 import com.nhom2.phodiem.entity.User;
@@ -29,6 +33,8 @@ import antlr.collections.List;
 @RequestMapping(path = "/api/v1/users")
 public class UserApi {
 	
+	private static final Logger LOGGER = LogManager.getLogger(UserController.class);
+	
 	@Autowired
 	UserRepository repository;
 	
@@ -36,57 +42,117 @@ public class UserApi {
 	public ResponseEntity<ResponseObject> changeInfo(@Valid @RequestBody User user,BindingResult bindingResult){
 		
 		
-		if (bindingResult.hasErrors()) {
-			return ResponseEntity.status(HttpStatus.OK).body(
-					new ResponseObject(200,"Đăng nhập thành công",bindingResult.getAllErrors())
-			);
-		}
-		else {
-			return ResponseEntity.status(HttpStatus.OK).body(
-					new ResponseObject(200,"Đăng nhập thành công",repository.save(user))
+		try {
+			if (bindingResult.hasErrors()) {
+				return ResponseEntity.status(HttpStatus.OK).body(
+						new ResponseObject(404,"Dữ liệu chưa chính xác",bindingResult.getAllErrors())
+				);
+			}
+			else {
+				return ResponseEntity.status(HttpStatus.OK).body(
+						new ResponseObject(200,"Thành công",repository.save(user))
+				);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			LOGGER.error(e.getMessage());
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+					new ResponseObject(404,"e.getMessage()","")
 			);
 		}
 	}
 	@GetMapping("/{userId}")
 	ResponseEntity<ResponseObject> findById(@PathVariable long userId){
-		Optional<User> foundPerson = repository.findById(userId);
 		
-		if(foundPerson.isPresent()) {
-			return ResponseEntity.status(HttpStatus.OK).body(
-					new ResponseObject(200,"Tim kiem thanh cong",foundPerson)
-				);
-		}
-		else {
+		try {
+			Optional<User> foundPerson = repository.findById(userId);
+			
+			if(foundPerson.isPresent()) {
+				return ResponseEntity.status(HttpStatus.OK).body(
+						new ResponseObject(200,"Tim kiem thanh cong",foundPerson)
+					);
+			}
+			else {
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+						new ResponseObject(404,"Tim kiem that bai","")
+					);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			LOGGER.error(e.getMessage());
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-					new ResponseObject(404,"Tim kiem that bai","")
-				);
+					new ResponseObject(404,"e.getMessage()","")
+			);
 		}
 	}
 	@GetMapping("/search/{q}")
 	ResponseEntity<ResponseObject> findUser(@PathVariable String q){
-		ArrayList<User> foundUsers = (ArrayList<User>) repository.searchByNameLike(q);
 		
-		if(foundUsers.size() > 0) {
-			return ResponseEntity.status(HttpStatus.OK).body(
-					new ResponseObject(200,"Tim kiem thanh cong",foundUsers)
-				);
-		}
-		else {
+		try {
+			ArrayList<User> foundUsers = (ArrayList<User>) repository.searchByNameLike(q);
+			
+			if(foundUsers.size() > 0) {
+				return ResponseEntity.status(HttpStatus.OK).body(
+						new ResponseObject(200,"Tim kiem thanh cong",foundUsers)
+					);
+			}
+			else {
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+						new ResponseObject(404,"Tim kiem that bai","")
+					);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			LOGGER.error(e.getMessage());
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-					new ResponseObject(404,"Tim kiem that bai","")
-				);
+					new ResponseObject(404,"e.getMessage()","")
+			);
+		}
+	}
+	@DeleteMapping("/{userId}")
+	ResponseEntity<ResponseObject> deleteUser(@PathVariable long userId){
+		
+		try {
+			Optional<User> foundUsers = repository.findById(userId);
+			
+			if(foundUsers.isPresent()) {
+				repository.deleteById(userId);
+				return ResponseEntity.status(HttpStatus.OK).body(
+						new ResponseObject(200,"Xóa thành công","")
+					);
+			}
+			else {
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+						new ResponseObject(404,"Xóa thất bại","")
+					);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			LOGGER.error(e.getMessage());
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+					new ResponseObject(404,"e.getMessage()","")
+			);
 		}
 	}
 	@PostMapping("/info/{userId}")
 	ResponseEntity<ResponseObject> updateInfo(@Valid @RequestBody User user,BindingResult bindingResult){
-		if (bindingResult.hasErrors()) {
-			return ResponseEntity.status(HttpStatus.OK).body(
-					new ResponseObject(200,"Đăng nhập thành công",bindingResult.getAllErrors())
-			);
-		}
-		else {
-			return ResponseEntity.status(HttpStatus.OK).body(
-					new ResponseObject(200,"Đăng nhập thành công",user)
+		
+		try {
+			if (bindingResult.hasErrors()) {
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+						new ResponseObject(404,"Cập nhật không thành công",bindingResult.getAllErrors())
+				);
+			}
+			else {
+				return ResponseEntity.status(HttpStatus.OK).body(
+						new ResponseObject(200,"Cập nhật thành công",user)
+				);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			LOGGER.error(e.getMessage());
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+					new ResponseObject(404,"e.getMessage()","")
 			);
 		}
 	}

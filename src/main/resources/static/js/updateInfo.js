@@ -1,14 +1,13 @@
 
 
 $(document).ready(function(){
+	loadData("#changeInfoForm")
 	autoFocus()
 	loadDataPosition(bindingPositionToForm,function(error){
 		console.log(error)
-	},"#changeUserForm [name=positionId]")
-	
-	
+	},"#changeInfoForm [name=positionId]")
+	handlesubmitForm()
 	handleSubmitInfoBtn()
-	handleAddUserForm()
 	
 })
 var userModel = {}
@@ -20,8 +19,8 @@ function loadData(selectorForm){
 	},selectorForm)
 }
 function autoFocus(){
-	var inputs = document.querySelectorAll("#changeUserForm [name]")
-	inputs[0].focus()
+	var inputs = document.querySelectorAll("#changeInfoForm [name]")
+	inputs[1].focus()
 }
 function loadDataUser(userId,callback,errorHandle,formSelector){
 	fetch(`/api/v1/users/${userId}`)
@@ -95,34 +94,19 @@ function handlesubmitForm(){
 		})
 	}
 	function errorHandle(){
-		alert("Dữ liệu thêm chưa hợp lệ")
-	}
-}
-function handleAddUserForm(){
-	var formAddUser = new Validator("#changeUserForm",errorHandle)
-		
-	formAddUser.onSubmit= function(dataForm){
-		
-		pushDataUser(dataForm,
-		function(response){
-			console.log(response)
-			if(confirm("Thêm thành công\n Chuyển sang chỉnh sửa thông tin")){
-				window.location.href = `/nguoi-dung/thay-doi-thong-tin-nguoi-dung/${response.data.userId}`
-			}
-			
-		},
-		function(error){
-			alert("Thêm không thành công")
-		})
-	}
-	function errorHandle(){
 		
 	}
 }
  function handleSubmitInfoBtn(){
 	$('#submitInfoBtn').click(function(event){
 		event.preventDefault()
-		if(confirm("Mọi thông tin sẽ không được lưu")){
+		if(confirm("Bạn có muốn lưu lại thông tin cũ?")){
+			window.location.href = "/nguoi-dung/ca-nhan"
+		}
+	})
+	$('#submitChangeBtn').click(function(event){
+		event.preventDefault()
+		if(confirm("Bạn có muốn lưu lại thông tin cũ?")){
 			window.location.href = "/nguoi-dung/menu-quan-ly"
 		}
 	})

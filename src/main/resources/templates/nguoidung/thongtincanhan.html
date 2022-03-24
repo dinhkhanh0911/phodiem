@@ -3,18 +3,19 @@
 <head>
 	<meta charset="utf-8">
 	<title>Thông tin cá nhân</title>
+	<script th:src="@{/js/updateInfo.js}"></script>
 </head>
 <body>
 	<div class="wrapper wrapper__custom-height wrapper-block" layout:fragment="content">
 	    <div class="container__page-fullWidth">
 	        <div class="name__page">
 	            <h4 class="name__page-tilte">
-	                Thay đổi thông tin cá nhân
+	                Thay đổi thông tin người dùng
 	            </h4>
 	        </div>
 	        <div class="container__page-content">
 	            
-	               <form class="form" id="changeInfoForm" action="/nguoi-dung/them-nguoi-dung">
+	               <form class="form" id="changeInfoForm" action="">
 	                   <div class="row">
 	                   		<div class="col l-4 m-6 c-12 disabled">
 	                           <div class="form-group form__import-item ">
@@ -24,73 +25,125 @@
 	                           </div>
 	                       </div>
 	                       <div class="col l-4 m-6 c-12">
-	                           <div class="form-group form__import-item">
-	                               <label class="form__import-label"> Họ và tên(<span>*</span>)</label>
-	                               <input class="form__import-select" rules="required|name|min:6" name="fullName" th:value="${userModel.fullName}"/>
-	                               <span class="error-message"></span>
+	                       		<div class="form-group">
+		                       		<div class=" form__import-item">
+		                               <label class="form__import-label"> Họ và tên(<span>*</span>)</label>
+		                               <div class="input-container">
+			                               <input class="form__import-select" rules="required|name|min:6" name="fullName" th:value="${userModel.fullName}"/>
+			                               <span class="error-message"></span>
+		                               </div>
+		                           </div>
 	                           </div>
 	                       </div>
 	                       <div class="col l-4 m-6 c-12">
 	                           <div class="form-group form__import-item">
 	                               <label class="form__import-label"> Giới tính </label>
-	                               <select class="form__import-select" name="gender" type="date">
-	                               		<option value="1"> Nam </option>
-	                               		<option value="0"> Nữ </option>
-	                               </select>
-	                               <span class="error-message"></span>
+	                               <div class="input-container">
+		                               <select class="form__import-select" name="gender" type="date">
+		                               		<option value="1"> Nam </option>
+		                               		<option value="0"> Nữ </option>
+		                               </select>
+		                               <span class="error-message"></span>
+	                               </div>
 	                           </div>
 	                       </div>
 	                       <div class="col l-4 m-6 c-12">
 	                           <div class="form-group form__import-item">
 	                               <label class="form__import-label"> Ngày sinh(<span>*</span>)</label>
-	                               <input rules="required" class="form__import-select" name="dateOfBrith" type="date" 
-	                               th:value="${userModel.dateOfBrith}"/>
-	                               <span class="error-message"></span>
+	                               <div class="input-container">
+		                               <input rules="required" class="form__import-select" name="dateOfBrith" type="date" 
+		                               th:value="${userModel.dateOfBrith}"/>
+		                               <span class="error-message"></span>
+	                               </div>
 	                           </div>
 	                           
 	                       </div>
 	                       <div class="col l-4 m-6 c-12">
 	                           <div class="form-group form__import-item">
 	                               <label class="form__import-label"> Số CCCD(<span>*</span>)</label>
-	                               <input rules="required" class="form__import-select" name="identityNumber" 
-	                               th:value="${userModel.identityNumber}"/>
-	                               <span class="error-message"></span>
+	                               <div class="input-container">
+		                               <input rules="required" class="form__import-select" name="identityNumber" 
+		                               th:value="${userModel.identityNumber}"/>
+		                               <span class="error-message"></span>
+	                               </div>
 	                           </div>
 	                       </div>
 	                       <div class="col l-4 m-6 c-12">
 	                           <div class="form-group form__import-item">
 	                               <label class="form__import-label"> Ngày cấp </label>
-	                               <input class="form__import-select" name="identityDate" type="date" th:value="${userModel.identityDate}"/>
-	                               <span class="error-message"></span>
+	                               <div class="input-container">
+		                               <input class="form__import-select" name="identityDate" type="date" th:value="${userModel.identityDate}"/>
+		                               <span class="error-message"></span>
+	                               </div>
 	                           </div>
 	                       </div>
 	                       <div class="col l-4 m-6 c-12">
 	                           <div class="form-group form__import-item">
 	                               <label class="form__import-label"> Nơi cấp </label>
-	                               <input class="form__import-select" name="identityPlace" th:value="${userModel.identityPlace}"/>
-	                               <span class="error-message"></span>
+	                               <div class="input-container">
+		                               <input class="form__import-select" name="identityPlace" th:value="${userModel.identityPlace}"/>
+		                               <span class="error-message"></span>
+	                               </div>
 	                           </div>
 	                       </div>
 	                       
 	                       <div class="col l-4 m-6 c-12">
 	                           <div class="form-group form__import-item">
 	                               <label class="form__import-label"> Địa chỉ(<span>*</span>)</label>
-	                               <input rules="required" class="form__import-select" name="address" th:value="${userModel.address}"/>
-	                               <span class="error-message"></span>
+	                               <div class="input-container">
+		                               <input rules="required" class="form__import-select" name="address" th:value="${userModel.address}"/>
+		                               <span class="error-message"></span>
+	                               </div>
 	                           </div>
 	                       </div>
 	                       <div class="col l-4 m-6 c-12">
 	                           <div class="form-group form__import-item">
 	                               <label class="form__import-label"> SĐT </label>
-	                               <input class="form__import-select" name="phoneNumber" th:value="${userModel.phoneNumber}"/>
-	                               <span class="error-message"></span>
+	                               <div class="input-container">
+		                               <input class="form__import-select" name="phoneNumber" th:value="${userModel.phoneNumber}"/>
+		                               <span class="error-message"></span>
+	                               </div>
 	                           </div>
 	                       </div>
 	                       <div class="col l-4 m-6 c-12">
 	                           <div class="form-group form__import-item">
 	                               <label class="form__import-label"> Email </label>
-	                               <input rules="required|email" class="form__import-select" name="email" th:value="${userModel.email}"/>
-	                               <span class="error-message"></span>
+	                               <div class="input-container">
+		                               <input rules="required|email" class="form__import-select" name="email" th:value="${userModel.email}"/>
+		                               <span class="error-message"></span>
+	                               </div>
+	                           </div>
+	                       </div>
+	                       <div class="col l-4 m-6 c-12">
+	                           <div class="form-group ">
+	                               <div class="form__import-item">
+		                               	<label class="form__import-label"> Vị trí làm việc </label>
+		                               <div class="input-container">
+			                               <select class="form__import-select" name="positionId">
+			                               		
+			                               </select>
+			                               <span class="error-message"></span>
+		                               </div>
+	                               </div>
+	                               
+	                           </div>
+	                       </div>
+	                       <div class="col l-4 m-6 c-12">
+	                           <div class="form-group form__import-item">
+	                               <label class="form__import-label"> Tài khoản </label>
+	                               <div class="input-container">
+		                               <input disabled rules="required" class="form__import-select" name="userName" th:value="${userModel.userName}"/>
+		                               <span class="error-message"></span>
+	                               </div>
+	                           </div>
+	                       </div>
+	                       <div class="col l-4 m-6 c-12">
+	                           <div class="form-group form__import-item">
+	                               <label class="form__import-label"> Mật khẩu </label>
+	                               <div class="input-container">
+		                               <input rules="required" class="form__import-select" name="passWord" th:value="${userModel.passWord}"/>
+		                               <span class="error-message"></span>
+	                               </div>
 	                           </div>
 	                       </div>
 	                      
