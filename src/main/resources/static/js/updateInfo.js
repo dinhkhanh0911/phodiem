@@ -36,7 +36,7 @@ function loadDataUser(userId,callback,errorHandle,formSelector){
 }
 function pushDataUser(data,callback,errorHandle){
 	fetch('/api/v1/users/info', {
-        method: 'POST', // or 'PUT'
+        method: 'PUT', // or 'PUT'
         headers: {
             'Content-Type': 'application/json',
         },
@@ -87,9 +87,11 @@ function handlesubmitForm(){
 		}
 		pushDataUser(userModel,
 		function(data){
-			alert("Thay đổi thông tin cá nhân thành công")
+			console.log(data.message)
+			alert(data.message)
 		},
 		function(error){
+			console.log(error)
 			alert("Thay đổi giữ liệu không thành công")
 		})
 	}

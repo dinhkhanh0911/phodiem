@@ -25,7 +25,7 @@ function loadSemester() {
 	$.ajax({
 		type: 'GET',
 		contentType: "application/json",
-		url: 'http://150.230.223.169:5000/api/v1/semesters',
+		url: 'http://localhost:5000/api/v1/semesters',
 		//data: JSON.stringify(values),
 		datatype: 'json',
 		error: function(xhr, ajaxOptions, thrownError) {
@@ -57,7 +57,7 @@ function loadSubject() {
 	$.ajax({
 		type: 'GET',
 		contentType: "application/json",
-		url: 'http://150.230.223.169:5000/api/v1/subjects',
+		url: 'http://localhost.169:5000/api/v1/subjects',
 		//data: JSON.stringify(values),
 		datatype: 'json',
 		error: function(xhr, ajaxOptions, thrownError) {
@@ -91,7 +91,7 @@ function loadClass() {
 	$.ajax({
 		type: 'GET',
 		contentType: "application/json",
-		url: 'http://150.230.223.169:5000/api/v1/classes',
+		url: 'http://localhost:5000/api/v1/classes',
 		//data: JSON.stringify(values),
 		datatype: 'json',
 		error: function(xhr, ajaxOptions, thrownError) {
@@ -116,7 +116,7 @@ function loadGv() {
 	$.ajax({
 		type: 'GET',
 		contentType: "application/json",
-		url: 'http://150.230.223.169:5000/api/v1/teachers',
+		url: 'http://localhost:5000/api/v1/teachers',
 		//data: JSON.stringify(values),
 		datatype: 'json',
 		error: function(xhr, ajaxOptions, thrownError) {

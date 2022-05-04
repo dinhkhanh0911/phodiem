@@ -19,17 +19,20 @@ function handerLoginSubmit(){
             data: JSON.stringify(values),
             datatype: 'json',
             error: function (xhr, ajaxOptions, thrownError) {
-                console.log(xhr);
+                console.log();
+                alert(xhr.responseJSON.message)
                 console.log(ajaxOptions);
                 console.log(thrownError);
-                alert("Đăng nhập thất bại")
             }
         }).done(function (response) {
             
             if (response != null ) {
-                alert(response.message)
+				console.log(response)
                 if(response.code===200){
 					window.location.href="/nguoi-dung/them-nguoi-dung"
+				}
+				else if(response.code===400){
+					
 				}
                 
             }

@@ -37,15 +37,20 @@ public class LoginApi {
 	public ResponseEntity<ResponseObject> dangNhap(@RequestBody User user,HttpSession session) {
 		try {
 			Optional<User> optionalUser = repository.findByUserName(user.getUserName());
-			if(optionalUser.isPresent() && optionalUser.get().getPassWord().equals(user.getPassWord())) {
-//				System.out.println();
-				session.setAttribute("user", optionalUser.get().getUserName());
-				session.setAttribute("userId", optionalUser.get().getUserId());
-				
-				return ResponseEntity.status(HttpStatus.OK).body(
-						new ResponseObject(200,"Đăng nhập thành công",user.getUserName())
-				);
-				
+			if(optionalUser.isPresent()) {
+				if(optionalUser.get().getPassWord().equals(user.getPassWord())) {
+					session.setAttribute("user", optionalUser.get().getUserName());
+					session.setAttribute("userId", optionalUser.get().getUserId());
+					
+					return ResponseEntity.status(HttpStatus.OK).body(
+							new ResponseObject(200,"Đăng nhập thành công",user.getUserName())
+					);
+				}
+				else {
+					return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+							new ResponseObject(400,"Thông tin tài khoản không chính xác","")
+					);
+				}
 			}
 			else {
 				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(

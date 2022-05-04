@@ -106,8 +106,13 @@ function handleAddUserForm(){
 		pushDataUser(dataForm,
 		function(response){
 			console.log(response)
-			if(confirm("Thêm thành công\n Chuyển sang chỉnh sửa thông tin")){
-				window.location.href = `/nguoi-dung/thay-doi-thong-tin-nguoi-dung/${response.data.userId}`
+			if(response.code === 200){
+				if(confirm("Thêm thành công\n Chuyển sang chỉnh sửa thông tin")){
+					window.location.href = `/nguoi-dung/thay-doi-thong-tin-nguoi-dung/${response.data.userId}`
+				}
+			}
+			else{
+				alert(response.message)
 			}
 			
 		},

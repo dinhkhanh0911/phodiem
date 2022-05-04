@@ -38,7 +38,6 @@ public class User {
 	private long userId;
 	private String userName;
 	
-	@Size(min = 6,message = "Mật khẩu nhỏ hơn 8 ký tự")
 	private String passWord;
 	
 	@Size(min = 2,max = 25)

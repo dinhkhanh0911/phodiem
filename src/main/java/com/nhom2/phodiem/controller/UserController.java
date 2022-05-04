@@ -28,7 +28,7 @@ import com.nhom2.phodiem.respository.UserRepository;
 public class UserController {
 	
 	
-	 private static final Logger LOGGER = LogManager.getLogger(UserController.class);
+	private static final Logger LOGGER = LogManager.getLogger(UserController.class);
 	
 	@Autowired
 	UserRepository repository;

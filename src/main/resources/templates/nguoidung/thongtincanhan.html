@@ -49,9 +49,9 @@
 	                       </div>
 	                       <div class="col l-4 m-6 c-12">
 	                           <div class="form-group form__import-item">
-	                               <label class="form__import-label"> Ngày sinh(<span>*</span>)</label>
+	                               <label class="form__import-label"> Ngày sinh</label>
 	                               <div class="input-container">
-		                               <input rules="required" class="form__import-select" name="dateOfBrith" type="date" 
+		                               <input class="form__import-select" name="dateOfBrith" type="date" 
 		                               th:value="${userModel.dateOfBrith}"/>
 		                               <span class="error-message"></span>
 	                               </div>
@@ -89,9 +89,9 @@
 	                       
 	                       <div class="col l-4 m-6 c-12">
 	                           <div class="form-group form__import-item">
-	                               <label class="form__import-label"> Địa chỉ(<span>*</span>)</label>
+	                               <label class="form__import-label"> Địa chỉ</label>
 	                               <div class="input-container">
-		                               <input rules="required" class="form__import-select" name="address" th:value="${userModel.address}"/>
+		                               <input  class="form__import-select" name="address" th:value="${userModel.address}"/>
 		                               <span class="error-message"></span>
 	                               </div>
 	                           </div>
@@ -107,7 +107,7 @@
 	                       </div>
 	                       <div class="col l-4 m-6 c-12">
 	                           <div class="form-group form__import-item">
-	                               <label class="form__import-label"> Email </label>
+	                               <label class="form__import-label"> Email(<span>*</span>) </label>
 	                               <div class="input-container">
 		                               <input rules="required|email" class="form__import-select" name="email" th:value="${userModel.email}"/>
 		                               <span class="error-message"></span>
@@ -130,7 +130,7 @@
 	                       </div>
 	                       <div class="col l-4 m-6 c-12">
 	                           <div class="form-group form__import-item">
-	                               <label class="form__import-label"> Tài khoản </label>
+	                               <label class="form__import-label"> Tài khoản(<span>*</span>) </label>
 	                               <div class="input-container">
 		                               <input disabled rules="required" class="form__import-select" name="userName" th:value="${userModel.userName}"/>
 		                               <span class="error-message"></span>
@@ -139,7 +139,7 @@
 	                       </div>
 	                       <div class="col l-4 m-6 c-12">
 	                           <div class="form-group form__import-item">
-	                               <label class="form__import-label"> Mật khẩu </label>
+	                               <label class="form__import-label"> Mật khẩu(<span>*</span>) </label>
 	                               <div class="input-container">
 		                               <input rules="required" class="form__import-select" name="passWord" th:value="${userModel.passWord}"/>
 		                               <span class="error-message"></span>

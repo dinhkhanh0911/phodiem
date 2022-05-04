@@ -35,6 +35,10 @@ function deleteDataUser(id,callback,errorHandle){
 function handleSearchClick(){
 	$('#searchBtn').click(function(){
 		var value = $('#searchInput').val()
+		if(value.trim() === ''){
+			alert("Vui lòng nhập thông tin tìm kiếm")
+			return;
+		}
 		loadDataUserBySearch(value,bindingDataToTableSearch,function(error){
 			console.log(error)
 			
@@ -42,7 +46,9 @@ function handleSearchClick(){
 	})
 }
 function bindingDataToTableSearch(response,selector){
-	console.log(response)
+	if(response.code == 404){
+		alert("Không tìm thấy người dùng tương ứng")
+	}
 	dienDanhSachBenhNhan(response)
     saveData.setData(response.data)
     handerSeeClick()

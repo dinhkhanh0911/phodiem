@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,30 +40,60 @@ public class UserApi {
 	UserRepository repository;
 	
 	@PostMapping("/info")
-	public ResponseEntity<ResponseObject> changeInfo(@Valid @RequestBody User user,BindingResult bindingResult){
+	public ResponseEntity<ResponseObject> addinfo(@Valid @RequestBody User user,BindingResult bindingResult){
 		
 		
 		try {
 			if (bindingResult.hasErrors()) {
 				return ResponseEntity.status(HttpStatus.OK).body(
-						new ResponseObject(404,"Dữ liệu chưa chính xác",bindingResult.getAllErrors())
+						new ResponseObject(404,"Dữ liệu chưa chính xác.Vui lòng kiểm tra lại",bindingResult.getAllErrors())
 				);
 			}
 			else {
+				Optional<User> optional = repository.findByUserName(user.getUserName());
+//				System.out.println(optional.get().getUserName());
+				if(optional.isPresent()) {
+					return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+							new ResponseObject(400,"Tài khoản đã tồn tại trong hệ thống","")
+					);
+				}
 				return ResponseEntity.status(HttpStatus.OK).body(
-						new ResponseObject(200,"Thành công",repository.save(user))
+						new ResponseObject(200,"Cập nhật thông tin thành công",repository.save(user))
 				);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			LOGGER.error(e.getMessage());
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-					new ResponseObject(404,"e.getMessage()","")
+					new ResponseObject(404,e.getMessage(),"")
+			);
+		}
+	}
+	@PutMapping("/info")
+	public ResponseEntity<ResponseObject> changeInfo(@Valid @RequestBody User user,BindingResult bindingResult){
+		
+		
+		try {
+			if (bindingResult.hasErrors()) {
+				return ResponseEntity.status(HttpStatus.OK).body(
+						new ResponseObject(404,"Dữ liệu chưa chính xác.Vui lòng kiểm tra lại",bindingResult.getAllErrors())
+				);
+			}
+			else {
+				return ResponseEntity.status(HttpStatus.OK).body(
+						new ResponseObject(200,"Cập nhật thông tin thành công",repository.save(user))
+				);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			LOGGER.error(e.getMessage());
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+					new ResponseObject(404,e.getMessage(),"")
 			);
 		}
 	}
 	@GetMapping("/{userId}")
-	ResponseEntity<ResponseObject> findById(@PathVariable long userId){
+	public ResponseEntity<ResponseObject> findById(@PathVariable long userId){
 		
 		try {
 			Optional<User> foundPerson = repository.findById(userId);
@@ -86,7 +117,7 @@ public class UserApi {
 		}
 	}
 	@GetMapping("/search/{q}")
-	ResponseEntity<ResponseObject> findUser(@PathVariable String q){
+	public ResponseEntity<ResponseObject> findUser(@PathVariable String q){
 		
 		try {
 			ArrayList<User> foundUsers = (ArrayList<User>) repository.searchByNameLike(q);
@@ -110,7 +141,7 @@ public class UserApi {
 		}
 	}
 	@DeleteMapping("/{userId}")
-	ResponseEntity<ResponseObject> deleteUser(@PathVariable long userId){
+	public ResponseEntity<ResponseObject> deleteUser(@PathVariable long userId){
 		
 		try {
 			Optional<User> foundUsers = repository.findById(userId);
@@ -135,12 +166,12 @@ public class UserApi {
 		}
 	}
 	@PostMapping("/info/{userId}")
-	ResponseEntity<ResponseObject> updateInfo(@Valid @RequestBody User user,BindingResult bindingResult){
+	public ResponseEntity<ResponseObject> updateInfo(@Valid @RequestBody User user,BindingResult bindingResult){
 		
 		try {
 			if (bindingResult.hasErrors()) {
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-						new ResponseObject(404,"Cập nhật không thành công",bindingResult.getAllErrors())
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+						new ResponseObject(400,"Cập nhật không thành công",bindingResult.getAllErrors())
 				);
 			}
 			else {
