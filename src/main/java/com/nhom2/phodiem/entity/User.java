@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -32,20 +33,68 @@ import lombok.Setter;
 @Setter
 public class User {
 	
+	public User() {
+		
+	}
+	public User(String userName, String passWord,String fullName,
+			String phoneNumber,
+			String email, String address, int gender, Date dateOfBrith,
+			String identityNumber, String identityPlace,
+			Date identityDate,Position position) {
+		super();
+		this.userName = userName;
+		this.passWord = passWord;
+		this.fullName = fullName;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.address = address;
+		this.gender = gender;
+		this.dateOfBrith = dateOfBrith;
+		this.identityNumber = identityNumber;
+		this.identityPlace = identityPlace;
+		this.identityDate = identityDate;
+		this.position = position;
+	}
+	public User(String userName, String passWord,
+			String phoneNumber,
+			String email, String address, int gender, Date dateOfBrith,
+			String identityNumber, String identityPlace,
+			Date identityDate,Position position) {
+		super();
+		this.userName = userName;
+		this.passWord = passWord;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.address = address;
+		this.gender = gender;
+		this.dateOfBrith = dateOfBrith;
+		this.identityNumber = identityNumber;
+		this.identityPlace = identityPlace;
+		this.identityDate = identityDate;
+		this.position = position;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long userId;
+	
+	@Column(nullable = false)
+	@NotBlank(message = "* Trường không để trống")
 	private String userName;
 	
+	@Column(nullable = false)
+	@NotBlank(message = "* Trường không để trống")
 	private String passWord;
 	
-	@Size(min = 2,max = 25)
+	@Column(nullable = false)
+	@NotBlank(message = "* Trường không để trống")
 	private String fullName;
 	
 	@Pattern(regexp="^[0-9]*$",message = "Số điện thoại chưa hợp lệ")
 	private String phoneNumber;
 	
+	@Column(nullable = false)
+	@NotBlank(message = "* Trường không để trống")
 	@Email(message = "Email chưa hợp lệ")
 	private String email;
 	
@@ -54,6 +103,8 @@ public class User {
 	private int gender;
 	private Date dateOfBrith;
 	
+	@Column(nullable = false)
+	@NotBlank(message = "* Trường không để trống")
 	@Pattern(regexp="^[0-9]*$",message = "Số CCCD chưa hợp lệ")
 	private String identityNumber;
 	

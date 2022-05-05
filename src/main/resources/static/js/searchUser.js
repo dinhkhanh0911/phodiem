@@ -46,7 +46,7 @@ function handleSearchClick(){
 	})
 }
 function bindingDataToTableSearch(response,selector){
-	if(response.code == 404){
+	if(response.code == 400){
 		alert("Không tìm thấy người dùng tương ứng")
 	}
 	dienDanhSachBenhNhan(response)

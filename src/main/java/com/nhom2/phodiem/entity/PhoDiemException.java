@@ -5,11 +5,8 @@ public class PhoDiemException extends Exception {
 		// TODO Auto-generated constructor stub
 		super(s);
 	}
-	public PhoDiemException() {
-		
-	}
 	@Override
     public String getMessage() {
-        return "Lỗi nhập vào một tuổi: " + super.getMessage();
+        return super.getMessage();
     } 
 }

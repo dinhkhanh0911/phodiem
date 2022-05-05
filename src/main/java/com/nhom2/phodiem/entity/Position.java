@@ -4,12 +4,14 @@ import java.sql.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,9 +24,21 @@ import lombok.NoArgsConstructor;
 @Data
 public class Position {
 
+	public Position() {
+		
+	}
+	public Position(String positionName, String positionCode) {
+		super();
+		this.positionName = positionName;
+		this.positionCode = positionCode;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long positionId;
+	
+	@Column(nullable = false)
+	@NotBlank(message = "* Trường không để trống")
 	private String positionName;
 	private String positionCode;
 	private String createBy;

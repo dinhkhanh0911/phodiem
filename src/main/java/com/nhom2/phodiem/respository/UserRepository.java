@@ -11,6 +11,7 @@ import com.nhom2.phodiem.entity.User;
 public interface  UserRepository extends JpaRepository<User,Long> {
 	
 	Optional<User> findByUserName(String username);
+	Optional<User> findById(long Id);
 	
 	
 	@Query("SELECT m FROM User m WHERE m.fullName LIKE %:name% or m.identityNumber LIKE %:name%")

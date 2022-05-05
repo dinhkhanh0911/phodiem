@@ -45,8 +45,8 @@ public class UserApi {
 		
 		try {
 			if (bindingResult.hasErrors()) {
-				return ResponseEntity.status(HttpStatus.OK).body(
-						new ResponseObject(404,"Dữ liệu chưa chính xác.Vui lòng kiểm tra lại",bindingResult.getAllErrors())
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+						new ResponseObject(400,"Dữ liệu chưa chính xác.Vui lòng kiểm tra lại",bindingResult.getAllErrors())
 				);
 			}
 			else {
@@ -64,8 +64,8 @@ public class UserApi {
 		} catch (Exception e) {
 			// TODO: handle exception
 			LOGGER.error(e.getMessage());
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-					new ResponseObject(404,e.getMessage(),"")
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
+					new ResponseObject(500,e.getMessage(),"")
 			);
 		}
 	}
@@ -75,8 +75,8 @@ public class UserApi {
 		
 		try {
 			if (bindingResult.hasErrors()) {
-				return ResponseEntity.status(HttpStatus.OK).body(
-						new ResponseObject(404,"Dữ liệu chưa chính xác.Vui lòng kiểm tra lại",bindingResult.getAllErrors())
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+						new ResponseObject(400,"Dữ liệu chưa chính xác.Vui lòng kiểm tra lại",bindingResult.getAllErrors())
 				);
 			}
 			else {
@@ -87,8 +87,8 @@ public class UserApi {
 		} catch (Exception e) {
 			// TODO: handle exception
 			LOGGER.error(e.getMessage());
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-					new ResponseObject(404,e.getMessage(),"")
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
+					new ResponseObject(500,e.getMessage(),"")
 			);
 		}
 	}
@@ -104,15 +104,15 @@ public class UserApi {
 					);
 			}
 			else {
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-						new ResponseObject(404,"Tim kiem that bai","")
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+						new ResponseObject(400,"Tim kiem that bai","")
 					);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			LOGGER.error(e.getMessage());
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-					new ResponseObject(404,"e.getMessage()","")
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
+					new ResponseObject(500,"e.getMessage()","")
 			);
 		}
 	}
@@ -128,15 +128,15 @@ public class UserApi {
 					);
 			}
 			else {
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-						new ResponseObject(404,"Tim kiem that bai","")
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+						new ResponseObject(400,"Tim kiem that bai","")
 					);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			LOGGER.error(e.getMessage());
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-					new ResponseObject(404,"e.getMessage()","")
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
+					new ResponseObject(500,"e.getMessage()","")
 			);
 		}
 	}
@@ -153,15 +153,15 @@ public class UserApi {
 					);
 			}
 			else {
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-						new ResponseObject(404,"Xóa thất bại","")
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+						new ResponseObject(400,"Xóa thất bại","")
 					);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			LOGGER.error(e.getMessage());
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-					new ResponseObject(404,"e.getMessage()","")
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
+					new ResponseObject(500,e.getMessage(),"")
 			);
 		}
 	}
@@ -182,8 +182,8 @@ public class UserApi {
 		} catch (Exception e) {
 			// TODO: handle exception
 			LOGGER.error(e.getMessage());
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-					new ResponseObject(404,"e.getMessage()","")
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
+					new ResponseObject(500,"e.getMessage()","")
 			);
 		}
 	}

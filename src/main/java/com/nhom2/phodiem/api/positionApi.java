@@ -31,7 +31,7 @@ public class positionApi {
 	PositionRepository repository;
 	
 	@GetMapping("")
-	ResponseEntity<ResponseObject> findAll(){
+	public ResponseEntity<ResponseObject> findAll(){
 		ArrayList<Position> listPositons = (ArrayList<Position>)repository.findAll();
 		
 		if(listPositons.size() > 0) {
@@ -50,13 +50,13 @@ public class positionApi {
 		
 		
 		if (bindingResult.hasErrors()) {
-			return ResponseEntity.status(HttpStatus.OK).body(
-					new ResponseObject(200,"Thêm thành công",bindingResult.getAllErrors())
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+					new ResponseObject(400,"Thêm thất bại",bindingResult.getAllErrors())
 			);
 		}
 		else {
 			return ResponseEntity.status(HttpStatus.OK).body(
-					new ResponseObject(404,"Thêm thất bại",repository.save(position))
+					new ResponseObject(200,"Thêm thành công",repository.save(position))
 			);
 		}
 	}

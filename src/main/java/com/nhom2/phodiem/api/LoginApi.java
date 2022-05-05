@@ -53,15 +53,15 @@ public class LoginApi {
 				}
 			}
 			else {
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-						new ResponseObject(404,"Đăng nhập thất bại","")
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+						new ResponseObject(400,"Đăng nhập thất bại","")
 				);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			LOGGER.error(e);
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-					new ResponseObject(404,e.getMessage(),"")
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
+					new ResponseObject(500,e.getMessage(),"")
 			);
 		}
 		

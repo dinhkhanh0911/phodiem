@@ -1,8 +1,9 @@
 package com.nhom2.phodiem;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.sql.Date;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,15 +11,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
 
 import com.nhom2.phodiem.api.UserApi;
 import com.nhom2.phodiem.entity.ResponseObject;
 import com.nhom2.phodiem.entity.User;
-import org.springframework.validation.Validator;
+
 @SpringBootTest
 @Transactional
-class PhodiemApplicationTests {
-
+public class TestUserApi {
 	@Autowired
 	UserApi userApi;
 	
@@ -233,6 +234,5 @@ class PhodiemApplicationTests {
 		
 	}
 	
-	
-	
+	//Test sửa thông tin người dùng tương tự chức năng thêm
 }
